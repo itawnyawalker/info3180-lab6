@@ -3,7 +3,7 @@ import NewsList from '@/components/NewsList.vue'
 export default {
     data() {
         return {
-            message: "Booo! Welcome to VueJS"
+            message: "Booo! Latest News"
         };
     },
     components: { NewsList }
