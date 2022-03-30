@@ -79,4 +79,8 @@ h5{
     text-align: justify;
 }
 
+form{
+    max-width: 80%;
+}
+
 </style>
