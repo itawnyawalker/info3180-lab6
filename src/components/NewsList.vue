@@ -1,17 +1,19 @@
 
 
 <template>
-    <form @submit.prevent="searchNews" class="d-flex flex-column justify-content-center">
-        <div class="input-group mx-sm-3 mb-2">
-            <label class="visually-hidden" for="search">Search
-            </label>
-            <input type="search" name="search" v-model="searchTerm" id="search" class="form-control mb-2 mr-sm-2" placeholder="Enter search term here" />
-            <button class="btn btn-primary mb-2">Search</button>
-        </div>
-        <p>You are searching for {{ searchTerm }}</p>
-    </form>
+    <div class="d-flex justify-content-center">
+        <form @submit.prevent="searchNews" >
+            <div class="input-group mx-sm-3 mb-2">
+                <label class="visually-hidden" for="search">Search
+                </label>
+                <input type="search" name="search" v-model="searchTerm" id="search" class="form-control mb-2 mr-sm-2" placeholder="Enter search term here" />
+                <button class="btn btn-primary mb-2">Search</button>
+            </div>
+            <p class="text-center">You are searching for {{ searchTerm }}</p>
+        </form>
+    </div>
 
-    <div class="grid-container">
+    <div class="row">
         <div v-for="article in articles" class="card shadow-sm">
             <img :src="article.urlToImage" class="card-image-top" alt="article image"/>
             <div class="card-body">
@@ -49,8 +51,8 @@ export default {
                 console.log(data);
                 self.articles = data.articles;
             });
-        },        
-    } ,
+        },       
+    },
 
     created() {
         let self = this;
@@ -76,26 +78,20 @@ export default {
 </script>
 
 <style>
-.grid-container{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 20px 20px;
-  width:100% ;
-  margin-top: 30px;
+*{
+    box-sizing: border-box;
 }
+
 
 .card{
    max-width: 350px;
-}
-h5{
-    text-align: left;
-}
-.card-body p{
-    text-align: justify;
+   margin: 10px 10px;
+   padding: 0%;
 }
 
-form{
-    max-width: 80%;
+
+.card-body p{
+    text-align: justify;
 }
 
 </style>
